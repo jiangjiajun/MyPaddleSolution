@@ -54,7 +54,7 @@ YOLO V3是现阶段检测精度和效率都较高的模型，推荐用户使用Y
 Mask R-CNN是经典的实例分割模型，流程是：
 
  <div align="center">
-    <img src="demo/Mask R-CNN.png" />
+    <img src="demo/Mask R-CNN architecture.png" />
  </div>
 
 ## 模型训练
