@@ -23,11 +23,15 @@ PaddlePaddle企业解决方案
 
   目标检测的任务是给定一张图片，让计算机找出其中所有目标的位置，并给出每个目标的具体类别。通常用包围框来表示目标的位置，该框需紧凑地包围住目标的全部范围。用户可以使用YOLO V3来完成此项任务。
   
+  <div align="center">
+    <img src="demo/000000509403_bbox.jpg" />
+  </div>
+  
   实例分割的任务是在目标检测的基础上，找出各包围框内属于目标的像素点。用户可以使用Mask R-CNN来完成此项任务。
 
-<div align="center">
-  <img src="demo/000000570688.jpg" />
-</div>
+  <div align="center">
+    <img src="demo/000000509403_mask.jpg" />
+  </div>
 
   接下来将简要介绍YOLOv3和Mask RCNN的原理。
 
