@@ -133,7 +133,7 @@ PaddlePaddle企业解决方案
 
 &emsp;&emsp;PaddleSolution目前支持[COCO](http://cocodataset.org)数据集和自定义数据集。请按照以下指南准备所需的数据集。
 
-**3.2.1 COCO数据集**
+#### 3.2.1 COCO数据集
 
   &emsp;&emsp;如果已经下载过COCO数据集，请按照以下步骤将存放COCO数据集的目录链接到当前PaddleSolution的目录下:
 
@@ -150,7 +150,7 @@ PaddlePaddle企业解决方案
 
   &emsp;&emsp;如果未下载COCO数据集或目录`dataset/coco`下没有数据集，PaddleSolution会自动下载[COCO-2017](http://images.cocodataset.org)数据集并解压至`~/.cache/paddle/dataset/`，模型训练时会使用该目录下的数据集。
   
-**3.2.2 自定义数据集**
+#### 3.2.2 自定义数据集（#待补充检测和分割的标注区别）
 
   &emsp;&emsp;目前PaddleSolution支持用户使用自定义数据集。用户在采集完图片之后，先使用数据标注工具LabelMe完成数据标注，再使用PaddleSolution提供的[数据转换脚本]()将LabelMe产出的数据格式转换为模型训练时所需的数据格式。
   
@@ -158,7 +158,8 @@ PaddlePaddle企业解决方案
   
   &emsp;&emsp;[LabelMe](https://github.com/wkentaro/labelme)支持在Windows/MacOS/Ubuntu三个系统上使用，且三个系统下的标注格式是一样。
 
-  >* Windows
+  * Windows下的安装
+  
     * 参考[安装文档](https://docs.anaconda.com/anaconda/install/windows/)安装Anaconda, 安装后打开Anaconda Navigator创建一个新的环境并进入该环境。
 
     * 安装pyqt:
@@ -179,14 +180,14 @@ PaddlePaddle企业解决方案
     * 运行:
     ```
     labelme
-      ```
-  * MacOS
+    ```
+  * MacOS下的安装
     
-    使用[安装指南](https://github.com/wkentaro/labelme)完成MacOS下LableMe的安装。
+  使用[安装指南](https://github.com/wkentaro/labelme)完成MacOS下LableMe的安装。
     
-  * Ubuntu
+  * Ubuntu下的安装
     
-    使用[安装指南](https://github.com/wkentaro/labelme)完成Ubuntu下LableMe的安装。
+  使用[安装指南](https://github.com/wkentaro/labelme)完成Ubuntu下LableMe的安装。
     
   &emsp;&emsp;**(2) 将LabelMe产出的数据格式转换为PaddleSolution所需的格式**
   
@@ -206,6 +207,14 @@ PaddlePaddle企业解决方案
   ```
   
 ### 3.3 训练
+#### 3.3.1 目标检测
+
+#### 3.3.2 实力分割
+&emsp;&emsp;选择不同的主干网络，Mask R-CNN的分割精度有所差别。推荐用户使用主干网络为ResNet50-vd-FPN的Mask R-CNN来完成实力分割，如果想要更高的精度，用户可以选择SENet154-vd-FPN的主干网络，但运行速度会变慢些。
+
+&emsp;&emsp;主干网络为ResNet50-vd-FPN的Mask R-CNN的配置文件为[mask_rcnn_r50_vd_fpn.yml]()，运行前请根据以下情况调整[mask_rcnn_r50_vd_fpn.yml]()中的参数：
+
+1. 
 
 ### 3.4 评估
 
