@@ -70,17 +70,19 @@ PaddlePaddle企业解决方案
 
 ### 3.1 安装
 
-运行PaddleSolution需预先安装PaddlePaddle和其他依赖项。
+&emsp;&emsp;运行PaddleSolution需预先安装PaddlePaddle和其他依赖项。
 
-**(1) 环境要求**
+&emsp;&emsp;**(1) 环境要求**
+  ```
   - Python2 或 Python3
   - CUDA >= 8.0
   - cuDNN >= 5.0
   - nccl >= 2.1.2
+  ```
 
-**(2) 安装PaddlePaddle**
+&emsp;&emsp;**(2) 安装PaddlePaddle**
 
-  请参照[PaddlePaddle安装指南](http://www.paddlepaddle.org.cn/)安装PaddlePaddle Fluid v.1.5或1.5之后的版本。请务必运行以下代码以确保PaddlePaddle安装成功以及所安装的版本不低于1.5。
+&emsp;&emsp;请参照[PaddlePaddle安装指南](http://www.paddlepaddle.org.cn/)安装PaddlePaddle Fluid v.1.5或1.5之后的版本。请务必运行以下代码以确保PaddlePaddle安装成功以及所安装的版本不低于1.5。
   
   ```
   # 查看PaddlePaddle是否安装成功
@@ -91,9 +93,9 @@ PaddlePaddle企业解决方案
   python -c "import paddle; print(paddle.__version__)"
   ```
 
-**(3) 安装其他依赖项**
+&emsp;&emsp;**(3) 安装其他依赖项**
   
-  PaddleSolution的运行需要依赖[COCO-API](https://github.com/cocodataset/cocoapi)，请运行以下代码进行安装：
+  &emsp;&emsp;PaddleSolution的运行需要依赖[COCO-API](https://github.com/cocodataset/cocoapi)，请运行以下代码进行安装：
   
   ```
   git clone https://github.com/cocodataset/cocoapi.git
@@ -106,21 +108,22 @@ PaddlePaddle企业解决方案
   python setup.py install --user
   ```
 
-**(4) 安装PaddleSolution**
+&emsp;&emsp;**(4) 安装PaddleSolution**
   
-  克隆模型库并进入到模型库的目录：
+  &emsp;&emsp;克隆模型库并进入到模型库的目录：
   ```
   cd <your_path/to/clone/PaddleSolution>
   git clone https://github.com/PaddlePaddle/PaddleSolution
   cd PaddleSolution
   ```
   
-  安装Python依赖项：
+  &emsp;&emsp;安装Python依赖项：
   ```
   pip install -r requirements.txt
   ```
   
-  确认测试样例可以正常运行：
+  &emsp;&emsp;确认测试样例可以正常运行：
+  
   ```
   export PYTHONPATH=`pwd`:$PYTHONPATH
   python ppdet/modeling/tests/test_architectures.py
