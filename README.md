@@ -95,43 +95,38 @@ Mask R-CNN是经典的实例分割模型，基本思想是首先利用候选框�
   
   PaddleSolution的运行需要依赖[COCO-API](https://github.com/cocodataset/cocoapi)，请运行以下代码进行安装：
   
-    ```
-    git clone https://github.com/cocodataset/cocoapi.git
-    cd cocoapi/PythonAPI
-    # 如果未安装cython，请运行下一行代码进行安装；否则，跳过
-    pip install Cython
-    # 如果要把COCO-API安装至global site-packages，请运行下一行代码进行安装；否则，跳过
-    make install
-    # 如果没有sudo权限或者不想安装至global site-packages，请运行下一行代码进行安装
-    python setup.py install --user
-    ```
+  ```
+  git clone https://github.com/cocodataset/cocoapi.git
+  cd cocoapi/PythonAPI
+  # 如果未安装cython，请运行下一行代码进行安装；否则，跳过
+  pip install Cython
+  # 如果要把COCO-API安装至global site-packages，请运行下一行代码进行安装；否则，跳过
+  make install
+  # 如果没有sudo权限或者不想安装至global site-packages，请运行下一行代码进行安装
+  python setup.py install --user
+  ```
 
 * 安装PaddleSolution
-
-  * 克隆模型库
   
-    请运行以下代码以克隆模型库并进入到模型库的目录。
-    
-    ```
-    cd <your_path/to/clone/PaddleSolution>
-    git clone https://github.com/PaddlePaddle/PaddleSolution
-    cd PaddleSolution
-    ```
+  * 克隆模型库并进入到模型库的目录
+  ```
+  cd <your_path/to/clone/PaddleSolution>
+  git clone https://github.com/PaddlePaddle/PaddleSolution
+  cd PaddleSolution
+  ```
   
   * 安装Python依赖项
-    
-    Python所需的依赖项都在[requirements.txt](requirements.txt), 请运行以下代码进行安装:
-    
-    ```
-    pip install -r requirements.txt
-    ```
+  
+  ```
+  pip install -r requirements.txt
+  ```
 
   * 确认测试样例可以正常运行
-  
-    ```
-    export PYTHONPATH=`pwd`:$PYTHONPATH
-    python ppdet/modeling/tests/test_architectures.py
-    ```
+
+  ```
+  export PYTHONPATH=`pwd`:$PYTHONPATH
+  python ppdet/modeling/tests/test_architectures.py
+  ```
   
 ### 数据准备
 
@@ -141,17 +136,17 @@ PaddleSolution目前支持[COCO](http://cocodataset.org)数据集和自定义数
 
   如果已经下载过COCO数据集，请按照以下步骤将存放COCO数据集的目录链接到当前PaddleSolution的目录下:
 
-  ```
-  # <path/to/coco>和<path/to/PaddleSolution>都应该是绝对路径
-  ln -sf <path/to/coco> <path/to/PaddleSolution>/dataset/coco
-  ```
+```
+# <path/to/coco>和<path/to/PaddleSolution>都应该是绝对路径
+ln -sf <path/to/coco> <path/to/PaddleSolution>/dataset/coco
+```
   
   如果想自己下载COCO数据集，可运行以下代码：
-  
-  ```
-  ./dataset/coco/download.sh
-  ```
-  
+
+```
+./dataset/coco/download.sh
+```
+
   如果未下载COCO数据集或目录`dataset/coco`下没有数据集，PaddleSolution会自动下载[COCO-2017](http://images.cocodataset.org)数据集并解压至`~/.cache/paddle/dataset/`，模型训练时会使用该目录下的数据集。
   
  
@@ -161,30 +156,33 @@ PaddleSolution目前支持[COCO](http://cocodataset.org)数据集和自定义数
   
   * LabelMe安装方法
    
-   LabelMe支持在windows/mac os/ubuntu三个系统上使用，三个系统下的标注格式是一样，可以跨平台无差异使用。
+    LabelMe支持在windows/mac os/ubuntu三个系统上使用，三个系统下的标注格式是一样，可以跨平台无差异使用。
 
-   * windows
-     - 参考[安装文档](https://docs.anaconda.com/anaconda/install/windows/)安装Anaconda, 安装后打开Anaconda Navigator创建一个新的环境并进入该环境。
-     - 下载[LabelMe源码](https://github.com/wkentaro/labelme)
-     - 安装pyqt
-     ```
-     # 如果使用python2
-     pip install pyqt
-     # 如果使用python3
-     pip install pyqt5
-     ```
-     - 安装labelme
-     ```
-     pip install labelme
-     ```
-     - 安装pillow
-     ```
-     python -m pip install pillow
-     ```
-     - 运行
-     ```
-     labelme
-     ```
+    * windows
+    
+    参考[安装文档](https://docs.anaconda.com/anaconda/install/windows/)安装Anaconda, 安装后打开Anaconda Navigator创建一个新的环境并进入该环境。
+    
+    下载[LabelMe源码](https://github.com/wkentaro/labelme)
+
+    安装pyqt
+    ```
+    # 如果使用python2
+    pip install pyqt
+    # 如果使用python3
+    pip install pyqt5
+    ```
+    安装labelme
+    ```
+    pip install labelme
+    ```
+    安装pillow
+    ```
+    python -m pip install pillow
+    ```
+    运行
+    ```
+    labelme
+    ```
   * 将LabelMe产出的数据格式转换为PaddleSolution所需的格式
   
   * 将LabelMe产出的数据格式转换为PaddleSolution所需的格式
