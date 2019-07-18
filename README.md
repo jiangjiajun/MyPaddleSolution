@@ -131,35 +131,34 @@ PaddlePaddle企业解决方案
   
 ### 3.2 数据准备
 
-PaddleSolution目前支持[COCO](http://cocodataset.org)数据集和自定义数据集。请按照以下指南准备所需的数据集。
+&emsp;&emsp;PaddleSolution目前支持[COCO](http://cocodataset.org)数据集和自定义数据集。请按照以下指南准备所需的数据集。
 
 **3.2.1 COCO数据集**
 
-  如果已经下载过COCO数据集，请按照以下步骤将存放COCO数据集的目录链接到当前PaddleSolution的目录下:
+  &emsp;&emsp;如果已经下载过COCO数据集，请按照以下步骤将存放COCO数据集的目录链接到当前PaddleSolution的目录下:
 
   ```
   # <path/to/coco>和<path/to/PaddleSolution>都应该是绝对路径
   ln -sf <path/to/coco> <path/to/PaddleSolution>/dataset/coco
   ```
   
-  如果想自己下载COCO数据集，可运行以下代码：
+  &emsp;&emsp;如果想自己下载COCO数据集，可运行以下代码：
 
   ```
   ./dataset/coco/download.sh
   ```
 
-  如果未下载COCO数据集或目录`dataset/coco`下没有数据集，PaddleSolution会自动下载[COCO-2017](http://images.cocodataset.org)数据集并解压至`~/.cache/paddle/dataset/`，模型训练时会使用该目录下的数据集。
+  &emsp;&emsp;如果未下载COCO数据集或目录`dataset/coco`下没有数据集，PaddleSolution会自动下载[COCO-2017](http://images.cocodataset.org)数据集并解压至`~/.cache/paddle/dataset/`，模型训练时会使用该目录下的数据集。
   
 **3.2.2 自定义数据集**
 
-  目前PaddleSolution支持用户使用自定义数据集。用户在采集完图片之后，先使用数据标注工具LabelMe完成数据标注，再使用PaddleSolution提供的[数据转换脚本]()将LabelMe产出的数据格式转换为模型训练时所需的数据格式。
+  &emsp;&emsp;目前PaddleSolution支持用户使用自定义数据集。用户在采集完图片之后，先使用数据标注工具LabelMe完成数据标注，再使用PaddleSolution提供的[数据转换脚本]()将LabelMe产出的数据格式转换为模型训练时所需的数据格式。
   
-  **(1) LabelMe安装方法**
+  &emsp;&emsp;**(1) LabelMe安装方法**
   
   &emsp;&emsp;[LabelMe](https://github.com/wkentaro/labelme)支持在Windows/MacOS/Ubuntu三个系统上使用，且三个系统下的标注格式是一样。
 
-  * Windows
-    
+  >* Windows
     * 参考[安装文档](https://docs.anaconda.com/anaconda/install/windows/)安装Anaconda, 安装后打开Anaconda Navigator创建一个新的环境并进入该环境。
 
     * 安装pyqt:
@@ -189,9 +188,9 @@ PaddleSolution目前支持[COCO](http://cocodataset.org)数据集和自定义数
     
     使用[安装指南](https://github.com/wkentaro/labelme)完成Ubuntu下LableMe的安装。
     
-  **(2) 将LabelMe产出的数据格式转换为PaddleSolution所需的格式**
+  &emsp;&emsp;**(2) 将LabelMe产出的数据格式转换为PaddleSolution所需的格式**
   
-  运行以下代码，可以自动将数据划分为训练集、验证集和测试集，同时文件目录组织结构与COCO标准数据集格式一致。终端同时会输出目标类别数量，请将该数值记下，后续模型训练会使用该数值。
+  &emsp;&emsp;运行以下代码，可以自动将数据划分为训练集、验证集和测试集，同时文件目录组织结构与COCO标准数据集格式一致。终端同时会输出目标类别数量，请将该数值记下，后续模型训练会使用该数值。
    
   ```
   # train_proportion、val_proportion和test_proportion为可选参数，分别代表训练集、验证集和测试集占总共数据的比例，三者之和必须等于1
