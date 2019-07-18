@@ -152,8 +152,8 @@ PaddleSolution目前支持[COCO](http://cocodataset.org)数据集和自定义数
   目前PaddleSolution支持用户使用自定义数据集。用户在采集完图片之后，先使用数据标注工具LabelMe完成数据标注，再使用PaddleSolution提供的[数据转换脚本]()将LabelMe产出的数据格式转换为模型训练时所需的数据格式。
   
   **(1) LabelMe安装方法**
-   
-  >[LabelMe](https://github.com/wkentaro/labelme)支持在Windows/MacOS/Ubuntu三个系统上使用，且三个系统下的标注格式是一样。
+  
+  &emsp;&emsp;[LabelMe](https://github.com/wkentaro/labelme)支持在Windows/MacOS/Ubuntu三个系统上使用，且三个系统下的标注格式是一样。
 
   * Windows
     
