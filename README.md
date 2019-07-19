@@ -212,7 +212,9 @@ PaddlePaddle企业解决方案
 #### 3.3.2 实例分割
 &emsp;&emsp;选择不同的主干网络，Mask R-CNN的分割精度有所差别。推荐用户使用主干网络为ResNet50-vd-FPN的Mask R-CNN来完成实例分割，如果想要更高的精度，可以选择SENet154-vd-FPN作为主干网络，但运行速度会稍慢些。
 
-&emsp;&emsp;主干网络为ResNet50-vd-FPN的配置文件为[mask_rcnn_r50_vd_fpn.yml]()，该配置文件的部分参数是针对使用8块显卡训练COCO数据集所设置的，运行前请根据实际情况调整这些参数：
+&emsp;&emsp;**(1) 参数调整**
+
+&emsp;&emsp;主干网络为ResNet50-vd-FPN的配置文件为[mask_rcnn_r50_vd_fpn.yml]()，该配置文件的部分参数是针对使用8块显卡训练COCO数据集所设置的，运行前请根据实际情况**调整这些参数**：
 
 * max_iters：总迭代次数
   * 8块显卡训练COCO数据集时总迭代次数为360000次，令显卡数量为`n(n<=8)`，最大迭代次数应设置为`360000*(8/n)`次。例如，4块显卡训练时设置为`720000`次，1块显卡训练时设置为`2880000`次。
@@ -233,9 +235,48 @@ PaddlePaddle企业解决方案
   * image_dir： 验证集中图片的存储路径。默认设置为val2017，如果想评估测试集的精度，可以修改为test2017。
   * annotation： 验证集中真值的存储路径。默认设置为annotations/instances_val2017.json，如果想评估测试集的精度，可以修改为annotations/instances_test2017.json。
 
+&emsp;&emsp;**(2) 训练**
+
+* 训练前需开启以下标志以确保有足够的显存：
+```
+export FLAGS_eager_delete_tensor_gb=0.0
+export FLAGS_fast_eager_deletion_mode=1
+```
+
+* 同时指定显卡的序号
+
+&emsp;&emsp;以使用序号为0的显卡为例，指定单块显卡训练方式（运行前请先用nvidia-smi命令查看哪块显卡是空闲的）：
+```
+export CUDA_VISIBLE_DEVICES=0
+```
+&emsp;&emsp;以使用8块显卡为例，指定多块显卡训练方式：
+```
+export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
+```
+
+* 开始训练：
+```
+python tools/train.py -c configs/mask_rcnn_r50_vd_fpn.yml
+```
+&emsp;&emsp;如果训练中断后，想从上次保存模型时的迭代次数开始训练，请加上`-r`来指定上次保存的模型的存储路径:
+```
+python tools/train.py -c configs/mask_rcnn_r50_vd_fpn.yml -r output/mask_rcnn_r50_vd_fpn/XXXX/
+```
+&emsp;&emsp;如果想在训练过程中同时评估每次保存下载的模型参数，请加上`--eval`：
+```
+python tools/train.py -c configs/mask_rcnn_r50_vd_fpn.yml --eval
+```
 
 ### 3.4 评估
 
+目前仅支持使用单块显卡进行评估，模型参数的路径通过[mask_rcnn_r50_vd_fpn.yml]()中`weights`来指定。
+```
+export CUDA_VISIBLE_DEVICES=0
+python tools/eval.py -c configs/mask_rcnn_r50_vd_fpn.yml
+```
+
 ### 3.5 预测
+
+
 
 ## 4 模型调优
