@@ -269,7 +269,7 @@ python tools/train.py -c configs/mask_rcnn_r50_vd_fpn.yml --eval
 
 ### 3.4 评估
 
-目前仅支持使用单块显卡进行评估，模型参数的路径通过[mask_rcnn_r50_vd_fpn.yml]()中`weights`来指定。
+&emsp;&emsp;目前仅支持使用单块显卡进行评估，模型参数的路径通过[mask_rcnn_r50_vd_fpn.yml]()中`weights`来指定。
 ```
 export CUDA_VISIBLE_DEVICES=0
 python tools/eval.py -c configs/mask_rcnn_r50_vd_fpn.yml
@@ -277,6 +277,28 @@ python tools/eval.py -c configs/mask_rcnn_r50_vd_fpn.yml
 
 ### 3.5 预测
 
-
+* 单张图片的预测，通过添加`--infer_img`指定该图片的路径：
+```
+export CUDA_VISIBLE_DEVICES=0
+python tools/infer.py -c configs/mask_rcnn_r50_vd_fpn.yml --infer_img=demo/000000570688.jpg
+```
+* 批量图片的预测，通过添加`--infer_dir`指定存放批量图片的文件夹路径：
+```
+export CUDA_VISIBLE_DEVICES=0
+python tools/infer.py -c configs/mask_rcnn_r50_vd_fpn.yml --infer_dir=demo
+```
+&emsp;&emsp;可视化结果默认存放在`output`下，通过添加`--save_file`自定义存放路径。
+```
+export CUDA_VISIBLE_DEVICES=0
+python tools/infer.py -c configs/mask_rcnn_r50_vd_fpn.yml --infer_img=demo/000000570688.jpg --save_file=<path/to/save/file>
+```
+* 模型保存
+&emsp;&emsp;通过添加`--save_inference_model`来保存预测模型，该模型在PaddlePaddle预测库中能够直接被导入而不需要再重新组网。
+```
+export CUDA_VISIBLE_DEVICES=0
+python tools/infer.py -c configs/mask_rcnn_r50_vd_fpn.yml --infer_img=demo/000000570688.jpg \
+                      --save_inference_model
+```
 
 ## 4 模型调优
+
