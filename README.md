@@ -38,3 +38,7 @@ PaddleSolution的目标是通过提供针对视觉任务的端到端解决方案
 | :------------------ | :-------------: | :--------------: | :----------------------------------------------------------: |
 | ResNet50-vd-FPN     |       39.8      |       35.4       | [模型参数](https://paddlemodels.bj.bcebos.com/object_detection/mask_rcnn_r50_vd_fpn_2x.tar)|
 | SENet154-vd-FPN     |       44.0      |       38.7       | [模型参数](https://paddlemodels.bj.bcebos.com/object_detection/mask_rcnn_se154_vd_fpn_s1x.tar) |
+
+## 2 数据准备
+
+PaddleSolution目前支持[COCO](http://cocodataset.org)数据集和自定义数据集。若不使用COCO数据集，用户需预先采集好用于训练、评估和预测的图片，并使用数据标注工具[LabelMe]((https://github.com/wkentaro/labelme))完成数据标注，最后使用我们提供的[数据转换脚本]()将LabelMe产出的数据格式转换为模型训练时所需的数据格式。具体流程请参见[数据准备.md]()。
