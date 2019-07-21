@@ -20,7 +20,7 @@ PaddlePaddle提供了针对视觉任务的端到端企业解决方案，覆盖�
 
 PaddleSolution的目标是通过提供针对视觉任务的端到端解决方案，帮助用户打通从准备数据，训练模型，到压缩和部署模型的全部流程。
 
-PaddleSolution提供了针对目标检测的神经网络模型YOLO V3，以及针对实例分割的模型Mask R-CNN，模型原理和可视化结果请参见[模型简介](./docs/1_简介/模型简介.md)，模型在COCO验证集上的精度表现如下：
+PaddleSolution提供了针对目标检测的神经网络模型YOLO V3，以及针对实例分割的模型Mask R-CNN，模型原理请参见[模型简介](./docs/1_简介/模型简介.md)，模型在COCO验证集上的精度表现如下：
 
 * YOLO V3
 
@@ -30,6 +30,13 @@ PaddleSolution提供了针对目标检测的神经网络模型YOLO V3，以及�
 | :------------------ | :-------------: | :--------------: | :----------------------------------------------------------: |
 | ResNet50-vd-FPN     |       39.8      |       35.4       | [模型参数](https://paddlemodels.bj.bcebos.com/object_detection/mask_rcnn_r50_vd_fpn_2x.tar)|
 | SENet154-vd-FPN     |       44.0      |       38.7       | [模型参数](https://paddlemodels.bj.bcebos.com/object_detection/mask_rcnn_se154_vd_fpn_s1x.tar) |
+
+<div align="center">
+    <img src="./docs/1_简介/img/000000509403_mask.jpg" />
+    <p>Mask R-CNN输出结果示意图</p>
+ </div>
+
+
 
 ## 2 数据准备
 
