@@ -24,6 +24,11 @@ PaddleSolution提供了针对目标检测的神经网络模型YOLO V3，以及�
 
 * YOLO V3
 
+<div align="center">
+    <img src="./docs/1_简介/img/000000509403_bbox.jpg" width="600px"/>
+    <p>YOLO V3输出结果示意图</p>
+ </div>
+
 * Mask R-CNN
 
 | 主干网络             | 检测精度(Box AP) | 分割精度(Mask AP) |                           下载                           |
@@ -32,7 +37,7 @@ PaddleSolution提供了针对目标检测的神经网络模型YOLO V3，以及�
 | SENet154-vd-FPN     |       44.0      |       38.7       | [模型参数](https://paddlemodels.bj.bcebos.com/object_detection/mask_rcnn_se154_vd_fpn_s1x.tar) |
 
 <div align="center">
-    <img src="./docs/1_简介/img/000000509403_mask.jpg" />
+    <img src="./docs/1_简介/img/000000509403_mask.jpg" width="600px"/>
     <p>Mask R-CNN输出结果示意图</p>
  </div>
 
