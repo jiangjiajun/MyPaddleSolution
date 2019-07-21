@@ -43,7 +43,7 @@ PaddleSolution提供了针对目标检测的神经网络模型YOLO V3，以及�
 
 ## 2 数据准备
 
-PaddleSolution目前支持[COCO](http://cocodataset.org)数据集格式。若不使用COCO数据集，用户需预先采集好用于训练、评估和预测的图片，并使用数据标注工具[LabelMe]((https://github.com/wkentaro/labelme))完成数据标注，最后用我们提供的[数据转换脚本]()将LabelMe产出的数据格式转换为模型训练时所需的数据格式。具体流程请参见[数据准备.md](PaddleSolution/docs/2_数据准备/2_数据准备.md)。
+PaddleSolution目前支持[COCO](http://cocodataset.org)数据集格式。若不使用COCO数据集，用户需预先采集好用于训练、评估和预测的图片，并使用数据标注工具[LabelMe]((https://github.com/wkentaro/labelme))完成数据标注，最后用我们提供的[数据转换脚本]()将LabelMe产出的数据格式转换为模型训练时所需的数据格式。具体流程请参见[数据准备.md](./docs/2_数据准备/2_数据准备.md)。
 
 ## 3 模型训练
 
