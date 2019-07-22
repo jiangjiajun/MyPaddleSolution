@@ -51,9 +51,9 @@ PaddleSolution目前支持[COCO](http://cocodataset.org)数据集格式。若不
 | SENet154-vd-FPN     |       44.0      |       38.7       | [模型参数](https://paddlemodels.bj.bcebos.com/object_detection/mask_rcnn_se154_vd_fpn_s1x.tar) |
 
 推荐用户使用主干网络为ResNet50-vd-FPN的Mask R-CNN来完成实例分割，如果想要更高的精度，可以选择SENet154-vd-FPN作为主干网络，但运行速度会稍慢些。
-主干网络为ResNet50-vd-FPN的配置文件为[mask_rcnn_r50_vd_fpn.yml]()，该配置文件的部分参数是针对使用8块显卡训练COCO数据集所设置的，运行前请根据实际情况调整这些参数，具体的调整方法请参见[Mask R-CNN参数调整.md]()。
+主干网络为ResNet50-vd-FPN的配置文件为[mask_rcnn_r50_vd_fpn.yml](./configs/mask_rcnn_r50_vd_fpn.yml)，该配置文件的部分参数是针对使用8块显卡训练COCO数据集所设置的，运行前请根据实际情况调整这些参数，具体的调整方法请参见[Mask R-CNN参数调整.md](docs/3_模型训练/3.3.2.1 Mask R-CNN参数调整.md)。
 
-调整好参数之后，请参见[Mask R-CNN训练.md]()进行训练。
+调整好参数之后，请参见[Mask R-CNN训练.md](./docs/3_模型训练/3.3.2.2 Mask R-CNN训练.md)进行训练。
 
 
 ### 3.3 评估
