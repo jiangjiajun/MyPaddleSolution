@@ -58,6 +58,8 @@ PaddleSolution目前支持[COCO](http://cocodataset.org)数据集格式。若不
 ### 3.3 评估
 
 目前仅支持使用单块显卡进行评估，模型参数的路径通过[mask_rcnn_r50_vd_fpn.yml]()中`weights`来指定。
+  * 评估和测试阶段所需的模型参数的路径。默认为训练时最后一次迭代时保存的模型参数，即output/mask_rcnn_r50_vd_fpn_2x/model_final，可自定义。
+
 ```
 export CUDA_VISIBLE_DEVICES=0
 python tools/eval.py -c configs/mask_rcnn_r50_vd_fpn.yml
