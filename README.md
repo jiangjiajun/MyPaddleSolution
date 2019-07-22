@@ -49,7 +49,7 @@ PaddleSolution目前支持[COCO](http://cocodataset.org)数据集格式。若不
 
 ### 3.1 安装
 
-运行PaddleSolution对环境有所要求，且需预先安装PaddlePaddle和其他依赖项。具体流程请参见[模型安装.md]()。
+运行PaddleSolution对环境有所要求，且需预先安装PaddlePaddle和其他依赖项。具体流程请参见[模型安装.md](./docs/3_模型训练/3.1_模型安装.md)。
 
 ### 3.2 训练
 
