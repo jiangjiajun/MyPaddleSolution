@@ -18,36 +18,24 @@ PaddlePaddle提供了针对视觉任务的端到端企业解决方案，覆盖�
 * [5 模型部署](#5-模型部署)
 ## 1 简介
 
-PaddleSolution的目标是通过提供针对视觉任务的端到端解决方案，帮助用户打通从准备数据，训练模型，到压缩和部署模型的全部流程。目前支持的视觉任务有以下两种：
+PaddleSolution的目标是通过提供针对视觉任务的端到端解决方案，帮助用户打通从准备数据，训练模型，到压缩和部署模型的全部流程。
 
-* 目标检测
+PaddleSolution提供了针对目标检测的神经网络模型YOLO V3，以及针对实例分割的模型Mask R-CNN，模型原理请参见[模型简介](./docs/1_简介/模型简介.md)。
 
-&emsp;&emsp;目标检测的任务是给定一张图片，让计算机找出其中所有目标的位置，并给出每个目标的具体类别。通常用包围框来表示目标的位置，该框需紧凑地包围住目标的全部范围。
-
-* 实例分割
-
-&emsp;&emsp;实例分割的任务是在目标检测的基础上，找出各包围框内属于目标的像素点。
-
-我们提供了分别用于完成目标检测和实例分割的神经网络模型YOLO V3以及Mask R-CNN，这两个模型的原理和可视化结果请参见[模型简介](/docs/2_模型简介/2_模型简介.md)，模型在COCO验证集上的精度表现如下：
-
-* YOLO V3
-
-* Mask R-CNN
-
-| 主干网络             | 检测精度(Box AP) | 分割精度(Mask AP) |                           下载                           |
-| :------------------ | :-------------: | :--------------: | :----------------------------------------------------------: |
-| ResNet50-vd-FPN     |       39.8      |       35.4       | [模型参数](https://paddlemodels.bj.bcebos.com/object_detection/mask_rcnn_r50_vd_fpn_2x.tar)|
-| SENet154-vd-FPN     |       44.0      |       38.7       | [模型参数](https://paddlemodels.bj.bcebos.com/object_detection/mask_rcnn_se154_vd_fpn_s1x.tar) |
+<div align="center">
+    <img src="./docs/1_简介/img/000000509403_mask.jpg" width="600px"/>
+    <p>Mask R-CNN输出结果示意图</p>
+ </div>
 
 ## 2 数据准备
 
-PaddleSolution目前支持[COCO](http://cocodataset.org)数据集格式。若不使用COCO数据集，用户需预先采集好用于训练、评估和预测的图片，并使用数据标注工具[LabelMe]((https://github.com/wkentaro/labelme))完成数据标注，最后用我们提供的[数据转换脚本]()将LabelMe产出的数据格式转换为模型训练时所需的数据格式。具体流程请参见[数据准备.md]()。
+PaddleSolution目前支持[COCO](http://cocodataset.org)数据集格式。若不使用COCO数据集，用户需预先采集好用于训练、评估和预测的图片，并使用数据标注工具[LabelMe]((https://github.com/wkentaro/labelme))完成数据标注，最后用我们提供的[数据转换脚本]()将LabelMe产出的数据格式转换为模型训练时所需的数据格式。具体流程请参见[数据准备.md](./docs/2_数据准备/2_数据准备.md)。
 
 ## 3 模型训练
 
 ### 3.1 安装
 
-运行PaddleSolution对环境有所要求，且需预先安装PaddlePaddle和其他依赖项。具体流程请参见[模型安装.md]()。
+运行PaddleSolution对环境有所要求，且需预先安装PaddlePaddle和其他依赖项。具体流程请参见[模型安装.md](./docs/3_模型训练/3.1_模型安装.md)。
 
 ### 3.2 训练
 
@@ -55,8 +43,14 @@ PaddleSolution目前支持[COCO](http://cocodataset.org)数据集格式。若不
 
 #### 3.3.2 实例分割
 
-选择不同的主干网络，Mask R-CNN的分割精度有所差别。推荐用户使用主干网络为ResNet50-vd-FPN的Mask R-CNN来完成实例分割，如果想要更高的精度，可以选择SENet154-vd-FPN作为主干网络，但运行速度会稍慢些。
+选择不同的主干网络，Mask R-CNN的分割精度有所差别:
 
+| 主干网络             | 检测精度(Box AP) | 分割精度(Mask AP) |                           下载                           |
+| :------------------ | :-------------: | :--------------: | :----------------------------------------------------------: |
+| ResNet50-vd-FPN     |       39.8      |       35.4       | [模型参数](https://paddlemodels.bj.bcebos.com/object_detection/mask_rcnn_r50_vd_fpn_2x.tar)|
+| SENet154-vd-FPN     |       44.0      |       38.7       | [模型参数](https://paddlemodels.bj.bcebos.com/object_detection/mask_rcnn_se154_vd_fpn_s1x.tar) |
+
+推荐用户使用主干网络为ResNet50-vd-FPN的Mask R-CNN来完成实例分割，如果想要更高的精度，可以选择SENet154-vd-FPN作为主干网络，但运行速度会稍慢些。
 主干网络为ResNet50-vd-FPN的配置文件为[mask_rcnn_r50_vd_fpn.yml]()，该配置文件的部分参数是针对使用8块显卡训练COCO数据集所设置的，运行前请根据实际情况调整这些参数，具体的调整方法请参见[Mask R-CNN参数调整.md]()。
 
 调整好参数之后，请参见[Mask R-CNN训练.md]()进行训练。
