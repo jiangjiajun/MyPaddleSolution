@@ -47,8 +47,8 @@ PaddleSolution目前支持[COCO](http://cocodataset.org)数据集格式。若不
 
 | 主干网络             | 检测精度(Box AP) | 分割精度(Mask AP) |                           下载                           |
 | :------------------ | :-------------: | :--------------: | :----------------------------------------------------------: |
-| ResNet50-vd-FPN     |       39.8      |       35.4       | [模型参数](https://paddlemodels.bj.bcebos.com/object_detection/mask_rcnn_r50_vd_fpn_2x.tar)|
-| SENet154-vd-FPN     |       44.0      |       38.7       | [模型参数](https://paddlemodels.bj.bcebos.com/object_detection/mask_rcnn_se154_vd_fpn_s1x.tar) |
+| ResNet50-vd-FPN     |       39.8      |       35.4       | [模型](https://paddlemodels.bj.bcebos.com/object_detection/mask_rcnn_r50_vd_fpn_2x.tar)|
+| SENet154-vd-FPN     |       44.0      |       38.7       | [模型](https://paddlemodels.bj.bcebos.com/object_detection/mask_rcnn_se154_vd_fpn_s1x.tar) |
 
 各主干网络的配置文件都在[configs](./configs)下，这些配置文件的部分参数是针对使用8块显卡训练COCO数据集所设置的，运行前请根据实际情况调整这些参数，具体的调整方法请参见[Mask R-CNN参数调整.md](./docs/3_模型训练/3.2.2.1_Mask_R-CNN训练参数调整.md)。
 
@@ -60,7 +60,8 @@ PaddleSolution目前支持[COCO](http://cocodataset.org)数据集格式。若不
 #### 3.2.1 目标检测
 
 #### 3.2.2 实例分割
-用户
+
+PaddleSolution提供了已在COCO训练集上训练好的模型，用户可以下载这些模型并对其进行评估，也可以对在自定义数据集上训练好的模型进行评估。具体的评估流程请参见[Mask R-CNN评估.md]()。
 ### 3.4 预测
 
 训练好的的模型参数可用于预测单张图片或者批量图片，具体的步骤以及可视化结果请参见[预测.md]()。
