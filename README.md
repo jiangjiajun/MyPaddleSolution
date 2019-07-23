@@ -2,7 +2,7 @@
 
 [![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat)](https://github.com/jiangjiajun/PaddleSolution) [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](LICENSE)
 
-PaddlePaddle提供了针对视觉任务的端到端企业解决方案，覆盖了从数据准备到模型部署的整个流程。在此Repo中，针对每种视觉任务，我们提供了现阶段精度和效率皆优的神经网络模型，并展示了如何准备数据，如何使用PaddlePaddle完成模型的训练、压缩和部署。
+PaddlePaddle提供了针对视觉任务的端到端企业解决方案，覆盖了从数据准备到模型训练的整个流程。在此Repo中，针对每种视觉任务，我们提供了现阶段精度和效率皆优的神经网络模型，并展示了如何准备数据，如何使用PaddlePaddle完成模型的训练。
 
 
 ## 目录
