@@ -119,6 +119,18 @@ def deal_json(img_path, json_path):
     categories_list = []
     annotations_list = []
     labels_list = []
+    dataset_name = img_path.split('/')[-1]
+    if dataset_name != 'train2017':
+        train_json_file = osp.join(img_path.replace(dataset_name, 'annotations'),
+                                   'instance_' + 'train2017' + '.json')
+        with open(train_json_file) as tf:
+            train_data = json.load(tf)
+            categories_list = train_data['categories']
+            for category in categories_list:
+                train_label = category['name']
+                labels_list.append(train_label)
+                label_to_num[train_label] = len(labels_list)
+    print(labels_list)
     num = -1
     for img_file in os.listdir(img_path):
         img_label = img_file.split('.')[0]
@@ -149,6 +161,8 @@ def deal_json(img_path, json_path):
     data_coco['images'] = images_list
     data_coco['categories'] = categories_list
     data_coco['annotations'] = annotations_list
+    print('The number of categories is {}.'.format(len(labels_list)))
+    print(labels_list)
     return data_coco
 
 
@@ -160,21 +174,11 @@ def main():
     parser.add_argument(
         '--output_dir', help='output dataset directory', default='../../../')
     parser.add_argument(
-        '--train_proportion',
-        help='the proportion of train dataset',
-        type=float,
-        default=1.0)
-    parser.add_argument(
-        '--val_proportion',
-        help='the proportion of validation dataset',
-        type=float,
-        default=0.0)
-    parser.add_argument(
-        '--test_proportion',
-        help='the proportion of test dataset',
-        type=float,
-        default=0.0)
+        '--dataset_name',
+        help='the name of the dataset being converted (train, val or test)',
+        default='train')
     args = parser.parse_args()
+    print(args.dataset_name)
     try:
         assert os.path.exists(args.json_input_dir)
     except AssertionError as e:
@@ -186,74 +190,38 @@ def main():
         print('The image folder does not exist!')
         os._exit(0)
     try:
-        assert args.train_proportion + args.val_proportion + args.test_proportion == 1.0
+        assert args.dataset_name in ['train', 'val', 'test']
     except AssertionError as e:
-        print(
-            'The sum of pqoportion of training, validation and test datase must be 1!'
-        )
+        print('The name of the dataset must be train, val or test!')
         os._exit(0)
 
     # Allocate the dataset.
     total_num = len(glob.glob(osp.join(args.json_input_dir, '*.json')))
-    if args.train_proportion != 0:
-        train_num = int(total_num * args.train_proportion)
-        os.makedirs(args.output_dir + '/train')
-    else:
-        train_num = 0
-    if args.val_proportion == 0.0:
-        val_num = 0
-        test_num = total_num - train_num
-        if args.test_proportion != 0.0:
-            os.makedirs(args.output_dir + '/test')
-    else:
-        val_num = int(total_num * args.val_proportion)
-        test_num = total_num - train_num - val_num
-        os.makedirs(args.output_dir + '/val')
-        if args.test_proportion != 0.0:
-            os.makedirs(args.output_dir + '/test')
-    count = 1
-    for img_name in os.listdir(args.image_input_dir):
-        if count <= train_num:
-            shutil.copyfile(
-                osp.join(args.image_input_dir, img_name),
-                osp.join(args.output_dir + '/train/', img_name))
-        else:
-            if count <= train_num + val_num:
-                shutil.copyfile(
-                    osp.join(args.image_input_dir, img_name),
-                    osp.join(args.output_dir + '/val/', img_name))
-            else:
-                shutil.copyfile(
-                    osp.join(args.image_input_dir, img_name),
-                    osp.join(args.output_dir + '/test/', img_name))
-        count = count + 1
+    if not os.path.exists(osp.join(args.output_dir, args.dataset_name + '2017')):
+        os.makedirs(osp.join(args.output_dir, args.dataset_name + '2017')) 
+    exts = ['jpg', 'jpeg', 'png', 'bmp']
+    images = []
+    for ext in exts:
+        images.extend(glob.glob('{}/*.{}'.format(args.image_input_dir, ext)))
+    for img in images:
+        img_name = img.split('/')[-1]
+        shutil.copyfile(
+            osp.join(args.image_input_dir, img_name),
+            osp.join(osp.join(args.output_dir, args.dataset_name + '2017/'),
+                     img_name))
 
     # Deal with the json files.
     if not os.path.exists(args.output_dir + '/annotations'):
         os.makedirs(args.output_dir + '/annotations')
-    if args.train_proportion != 0:
-        train_data_coco = deal_json(args.output_dir + '/train',
-                                    args.json_input_dir)
-        train_json_path = osp.join(args.output_dir + '/annotations',
-                                   'instance_train.json')
-        json.dump(
-            train_data_coco,
-            open(train_json_path, 'w'),
-            indent=4,
-            cls=MyEncoder)
-    if args.val_proportion != 0:
-        val_data_coco = deal_json(args.output_dir + '/val', args.json_input_dir)
-        val_json_path = osp.join(args.output_dir + '/annotations',
-                                 'instance_val.json')
-        json.dump(
-            val_data_coco, open(val_json_path, 'w'), indent=4, cls=MyEncoder)
-    if args.test_proportion != 0:
-        test_data_coco = deal_json(args.output_dir + '/test',
-                                   args.json_input_dir)
-        test_json_path = osp.join(args.output_dir + '/annotations',
-                                  'instance_test.json')
-        json.dump(
-            test_data_coco, open(test_json_path, 'w'), indent=4, cls=MyEncoder)
+    data_coco = deal_json(osp.join(args.output_dir, args.dataset_name + '2017'),
+                          args.json_input_dir)
+    json_path = osp.join(args.output_dir + '/annotations',
+                         'instance_' + args.dataset_name + '2017' + '.json')
+    json.dump(
+         data_coco,
+         open(json_path, 'w'),
+         indent=4,
+         cls=MyEncoder)
 
 if __name__ == '__main__':
     main()
