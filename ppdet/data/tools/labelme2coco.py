@@ -122,7 +122,7 @@ def deal_json(img_path, json_path):
     dataset_name = img_path.split('/')[-1]
     if dataset_name != 'train2017':
         train_json_file = osp.join(img_path.replace(dataset_name, 'annotations'),
-                                   'instance_' + 'train2017' + '.json')
+                                   'instances_' + 'train2017' + '.json')
         with open(train_json_file) as tf:
             train_data = json.load(tf)
             categories_list = train_data['categories']
@@ -212,7 +212,7 @@ def main():
     data_coco = deal_json(osp.join(args.output_dir, args.dataset_name + '2017'),
                           args.json_input_dir)
     json_path = osp.join(args.output_dir + '/annotations',
-                         'instance_' + args.dataset_name + '2017' + '.json')
+                         'instances_' + args.dataset_name + '2017' + '.json')
     json.dump(
          data_coco,
          open(json_path, 'w'),
