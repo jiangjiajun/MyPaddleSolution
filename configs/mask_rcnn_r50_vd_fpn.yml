@@ -118,7 +118,7 @@ MaskRCNNTrainFeed:
   image_shape: [3, 1333, 800]
   dataset:
     dataset_dir: dataset/coco
-    image_dir: train017
+    image_dir: train2017
     annotation: annotations/instances_train2017.json
   sample_transforms:
   - !DecodeImage
