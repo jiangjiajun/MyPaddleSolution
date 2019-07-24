@@ -130,12 +130,10 @@ def deal_json(img_path, json_path):
                 train_label = category['name']
                 labels_list.append(train_label)
                 label_to_num[train_label] = len(labels_list)
-    print(labels_list)
     num = -1
     for img_file in os.listdir(img_path):
         img_label = img_file.split('.')[0]
         label_file = osp.join(json_path, img_label + '.json')
-        print('Generating dataset from:', label_file)
         num = num + 1
         with open(label_file) as f:
             data = json.load(f)
@@ -162,7 +160,6 @@ def deal_json(img_path, json_path):
     data_coco['categories'] = categories_list
     data_coco['annotations'] = annotations_list
     print('The number of categories is {}.'.format(len(labels_list)))
-    print(labels_list)
     return data_coco
 
 
@@ -178,7 +175,6 @@ def main():
         help='the name of the dataset being converted (train, val or test)',
         default='train')
     args = parser.parse_args()
-    print(args.dataset_name)
     try:
         assert os.path.exists(args.json_input_dir)
     except AssertionError as e:
