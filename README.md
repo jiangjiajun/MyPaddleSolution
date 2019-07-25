@@ -22,7 +22,7 @@ PaddleSolution提供了针对目标检测的神经网络模型YOLO V3，以及�
 
 <div align="center">
     <img src="./docs/1_简介/img/000000509403_mask.jpg" width="600px"/>
-    <p>Mask R-CNN输出结果示意图</p>
+    <p>Mask R-CNN预测结果示意图</p>
  </div>
 
 ## 2 数据准备
