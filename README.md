@@ -16,7 +16,7 @@ PaddlePaddle提供了针对视觉任务的端到端企业解决方案，覆盖�
   * [3.5 调优](#35-调优)
 ## 1 简介
 
-PaddleSolution的目标是通过提供针对视觉任务的端到端解决方案，帮助用户打通从准备数据，到训练模型的全部流程。
+PaddleSolution的目标是通过提供针对视觉任务的端到端解决方案，帮助用户打通从准备数据到训练模型的全部流程。
 
 PaddleSolution提供了针对目标检测的神经网络模型YOLO V3，以及针对实例分割的模型Mask R-CNN，模型原理请参见[模型简介](./docs/1_简介/模型简介.md)。
 
@@ -45,8 +45,8 @@ PaddleSolution目前支持[COCO](http://cocodataset.org)数据集格式。若不
 
 | 主干网络             | 检测精度(Box AP) | 分割精度(Mask AP) |                           下载                           |
 | :------------------ | :-------------: | :--------------: | :----------------------------------------------------------: |
-| ResNet50-vd-FPN     |       39.8      |       35.4       | [模型](https://paddlemodels.bj.bcebos.com/object_detection/mask_rcnn_r50_vd_fpn_2x.tar)|
-| SENet154-vd-FPN     |       44.0      |       38.7       | [模型](https://paddlemodels.bj.bcebos.com/object_detection/mask_rcnn_se154_vd_fpn_s1x.tar) |
+| ResNet50-vd-FPN     |       39.8      |       35.4       | [模型参数](https://paddlemodels.bj.bcebos.com/object_detection/mask_rcnn_r50_vd_fpn_2x.tar)|
+| SENet154-vd-FPN     |       44.0      |       38.7       | [模型参数](https://paddlemodels.bj.bcebos.com/object_detection/mask_rcnn_se154_vd_fpn_s1x.tar) |
 
 各主干网络的配置文件都在[configs](./configs)下，这些配置文件的部分参数是针对使用8块显卡训练COCO数据集所设置的，运行前请根据实际情况调整这些参数，具体的调整方法请参见[Mask R-CNN参数调整.md](./docs/3_模型训练/3.2.2.1_Mask_R-CNN训练参数调整.md)。
 
