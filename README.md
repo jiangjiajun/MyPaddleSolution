@@ -35,34 +35,34 @@ PaddleSolution目前支持[COCO](http://cocodataset.org)数据集格式。若不
 
 运行PaddleSolution对环境有所要求，且需预先安装PaddlePaddle和其他依赖项。具体流程请参见[模型安装.md](./docs/3_模型训练/3.1_模型安装.md)。
 
-### 3.2 训练
+### 3.2 训练模型
 
 #### 3.2.1 目标检测
 
 #### 3.2.2 实例分割
 
-使用不同的主干网络，Mask R-CNN的分割精度有所差别:
+使用不同的主干网络，Mask R-CNN的分割准确率有所差别:
 
-| 主干网络             | 检测精度(Box AP) | 分割精度(Mask AP) |                           下载                           |
+| 主干网络             | 检测准确率(Box AP) | 分割准确率(Mask AP) |                           下载                           |
 | :------------------ | :-------------: | :--------------: | :----------------------------------------------------------: |
 | ResNet50-vd-FPN     |       39.8      |       35.4       | [模型参数](https://paddlemodels.bj.bcebos.com/object_detection/mask_rcnn_r50_vd_fpn_2x.tar)|
 | SENet154-vd-FPN     |       44.0      |       38.7       | [模型参数](https://paddlemodels.bj.bcebos.com/object_detection/mask_rcnn_se154_vd_fpn_s1x.tar) |
 
-各主干网络的配置文件都在[configs](./configs)下，这些配置文件的部分参数是针对使用8块显卡训练COCO数据集所设置的，运行前请根据实际情况调整这些参数，具体的调整方法请参见[Mask R-CNN参数调整.md](./docs/3_模型训练/3.2.2.1_Mask_R-CNN训练参数调整.md)。
+使用各主干网络进行训练、评估和测试所需的配置文件都在[configs](./configs)下，这些配置文件中部分超参数的默认值是针对使用8块显卡训练COCO数据集所设置的，运行前请根据实际情况调整这些超参数，具体的调整方法请参见[Mask R-CNN超参数调整.md](./docs/3_模型训练/3.2.2.1_Mask_R-CNN训练参数调整.md)。
 
 调整好参数之后，请参见[Mask R-CNN训练.md](./docs/3_模型训练/3.2.2.2_Mask_R-CNN训练.md)进行训练。
 
 
-### 3.3 评估
+### 3.3 评估模型
 
 #### 3.3.1 目标检测
 
 #### 3.3.2 实例分割
 
-PaddleSolution提供了已在COCO训练集上训练好的模型，用户可以下载这些模型并对其进行评估，也可以对在自定义数据集上训练好的模型进行评估。具体的评估流程请参见[Mask R-CNN评估.md](./docs/3_模型训练/3.3.2_Mask_R-CNN评估.md)。
+PaddleSolution提供了已在COCO训练集上训练好的Mask R-CNN参数，用户可以下载模型参数并评估模型Mask R-CNN的表现，也可以用在自定义数据集上训练好的模型参数对模型进行评估。具体的评估流程请参见[Mask R-CNN评估.md](./docs/3_模型训练/3.3.2_Mask_R-CNN评估.md)。
 ### 3.4 预测
 
-训练好的的模型参数可用于预测单张图片或者批量图片，具体的步骤以及可视化结果请参见[预测.md](./docs/3_模型训练/3.4_Mask_R-CNN预测.md)。
+在训练好模型后，给定单张图片或者批量图片，就可以检测具体的步骤以及可视化结果请参见[预测.md](./docs/3_模型训练/3.4_Mask_R-CNN预测.md)。
 
 ### 3.5 调优
 
