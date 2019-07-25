@@ -35,7 +35,7 @@ PaddleSolution目前支持[COCO](http://cocodataset.org)数据集格式。若不
 
 运行PaddleSolution对环境有所要求，且需预先安装PaddlePaddle和其他依赖项。具体流程请参见[模型安装.md](./docs/3_模型训练/3.1_模型安装.md)。
 
-### 3.2 训练模型
+### 3.2 训练
 
 #### 3.2.1 目标检测
 
@@ -50,10 +50,10 @@ PaddleSolution目前支持[COCO](http://cocodataset.org)数据集格式。若不
 
 使用各主干网络进行训练、评估和测试所需的配置文件都在[configs](./configs)下，这些配置文件中部分超参数的默认值是针对使用8块显卡训练COCO数据集所设置的，运行前请根据实际情况调整这些超参数，具体的调整方法请参见[Mask R-CNN超参数调整.md](./docs/3_模型训练/3.2.2.1_Mask_R-CNN训练参数调整.md)。
 
-调整好参数之后，请参见[Mask R-CNN训练.md](./docs/3_模型训练/3.2.2.2_Mask_R-CNN训练.md)进行训练。
+调整好超参数之后，请参见[Mask R-CNN训练.md](./docs/3_模型训练/3.2.2.2_Mask_R-CNN训练.md)进行训练。
 
 
-### 3.3 评估模型
+### 3.3 评估
 
 #### 3.3.1 目标检测
 
