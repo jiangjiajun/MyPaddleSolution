@@ -2,7 +2,7 @@
 
 [![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat)](https://github.com/jiangjiajun/PaddleSolution) [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](LICENSE)
 
-PaddlePaddle提供了针对视觉任务的端到端企业解决方案，覆盖了从数据准备到模型训练的整个流程。在此Repo中，针对每种视觉任务，我们提供了现阶段精度和效率皆优的神经网络模型，并展示了如何准备数据，如何使用PaddlePaddle完成模型的训练。
+PaddlePaddle提供了针对视觉任务的端到端企业解决方案，覆盖了从数据准备到模型训练的整个流程。在此Repo中，针对每种视觉任务，我们提供了现阶段准确率和效率皆优的神经网络模型，并展示了如何准备数据，如何使用PaddlePaddle完成模型的训练。
 
 
 ## 目录
@@ -66,4 +66,4 @@ PaddleSolution提供了已在COCO训练集上训练好的Mask R-CNN参数，用�
 
 ### 3.5 调优
 
-[配置文件](./configs)中各参数的默认值对于COCO数据集来说是最优的，这些设定值对于其他数据集来说可能不是最优的。用户在训练自定义数据集时，可以调整这些参数，以期获得精度或效率的提升。Mask R-CNN具体的调整策略请参见[Mask R-CNN模型调优.md](./docs/3_模型训练/3.5_Mask-RCNN调优.md)。
+[配置文件](./configs)中超参数的默认值对于COCO数据集来说是最优的，这些设定值对于其他数据集来说可能不是最优的。用户在训练自定义数据集时，可以调整这些超参数，以期获得准确率或效率的提升。Mask R-CNN超参数的调整策略请参见[Mask R-CNN模型调优.md](./docs/3_模型训练/3.5_Mask-RCNN调优.md)。
