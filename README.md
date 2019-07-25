@@ -48,7 +48,7 @@ PaddleSolution目前支持[COCO](http://cocodataset.org)数据集格式。若不
 | ResNet50-vd-FPN     |       39.8      |       35.4       | [模型参数](https://paddlemodels.bj.bcebos.com/object_detection/mask_rcnn_r50_vd_fpn_2x.tar)|
 | SENet154-vd-FPN     |       44.0      |       38.7       | [模型参数](https://paddlemodels.bj.bcebos.com/object_detection/mask_rcnn_se154_vd_fpn_s1x.tar) |
 
-使用各主干网络进行训练、评估和测试所需的配置文件都在[configs](./configs)下，这些配置文件中部分配置的默认值是针对使用8块显卡训练COCO数据集所设置的，运行前请根据实际情况调整这些配置，具体的调整方法请参见[Mask R-CNN配置调整.md](./docs/3_模型训练/3.2.2.1_Mask_R-CNN训练参数调整.md)。
+使用各主干网络进行训练、评估和测试所需的配置文件都在[configs](./configs)下，这些配置文件中部分配置的默认值是针对使用8块显卡训练COCO数据集所设置的，运行前请根据实际情况调整这些配置，具体的调整方法请参见[Mask R-CNN训练配置调整.md](./docs/3_模型训练/3.2.2.1_Mask_R-CNN训练参数调整.md)。
 
 调整配置的设值后，请参见[Mask R-CNN训练.md](./docs/3_模型训练/3.2.2.2_Mask_R-CNN训练.md)进行训练。
 
