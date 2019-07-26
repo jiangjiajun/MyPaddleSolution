@@ -18,7 +18,7 @@ PaddlePaddle提供了针对视觉任务的端到端企业解决方案，覆盖�
 
 PaddleSolution的目标是通过提供针对视觉任务的端到端解决方案，帮助用户打通从准备数据到训练模型的全部流程。
 
-PaddleSolution提供了针对目标检测的神经网络模型YOLO V3，以及针对实例分割的模型Mask R-CNN，模型原理请参见[模型简介](./docs/1_简介/模型简介.md)。
+PaddleSolution提供了针对目标检测的神经网络模型[YOLO V3](https://pjreddie.com/media/files/papers/YOLOv3.pdf)，以及针对实例分割的模型[Mask R-CNN](https://arxiv.org/abs/1703.06870)，模型原理请参见[模型简介](./docs/1_简介/模型简介.md)。
 
 <div align="center">
     <img src="./docs/1_简介/img/000000509403_mask.jpg" width="600px"/>
