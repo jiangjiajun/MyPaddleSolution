@@ -2,7 +2,14 @@
 
 [![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat)](https://github.com/jiangjiajun/PaddleSolution) [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](LICENSE)
 
-PaddleSoultion是基于PaddlePaddle的框架和模型生态，制定了一套面向企业用户的视觉任务解决方案。整个方案涵盖从数据准备，模型训练，调优到最终的预测部署。  
+PaddleSolution是基于PaddlePaddle的框架和模型生态，制定了一套面向企业用户的视觉任务解决方案。整个方案涵盖从数据准备，模型训练，调优到最终的预测部署。  
+PaddleSolution解决方案整体架构如下图所示
+
+**这里要贴一个PaddleSolution的架构图**
+
+其中PaddleSolution中的文档将会串通所有模块，整体文档目录如下：
+
+**这里贴上文档目录**
 
 PaddlePaddle提供了针对视觉任务的端到端企业解决方案，覆盖了从数据准备到模型训练的整个流程。在此Repo中，针对每种视觉任务，我们提供了现阶段准确率和效率皆优的神经网络模型，并展示了如何准备数据，如何使用PaddlePaddle完成模型的训练。
 
