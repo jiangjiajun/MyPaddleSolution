@@ -2,7 +2,7 @@
 
 [![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat)](https://github.com/jiangjiajun/PaddleSolution) [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](LICENSE)
 
-PaddleSolution是基于PaddlePaddle的框架和模型生态，制定了一套面向企业用户的视觉任务解决方案。整个方案涵盖从数据准备，模型训练，调优到最终的预测部署。  
+PaddleSolution是基于PaddlePaddle的框架和模型生态，制定的一套面向企业用户的视觉任务解决方案。整个方案涵盖从数据准备，模型训练，调优到最终的预测部署。  
 PaddleSolution解决方案整体架构如下图所示
 
 **这里要贴一个PaddleSolution的架构图**
