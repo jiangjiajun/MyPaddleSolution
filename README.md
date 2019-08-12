@@ -4,9 +4,7 @@
 
 PaddleSolution是基于PaddlePaddle的框架和模型生态，制定的一套面向企业用户的视觉任务解决方案。整个方案涵盖从数据准备，模型训练，调优到最终的预测部署。  
 PaddleSolution解决方案整体架构如下图所示
-
 ![avatar](structure.png)
-
 其中PaddleSolution中的文档将会串通所有模块，整体文档目录如下：
 1. 目标检测和实例分割任务  
 2. 标注自己的数据  
