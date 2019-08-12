@@ -1,11 +1,12 @@
 # PaddleSolution
 
 [![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat)](https://github.com/jiangjiajun/PaddleSolution) [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](LICENSE)
-
+## 项目介绍
 PaddleSolution是基于PaddlePaddle的框架和模型生态，制定的一套面向企业用户的视觉任务解决方案。整个方案涵盖从数据准备，模型训练，调优到最终的预测部署。  
 PaddleSolution解决方案整体架构如下图所示  
 <img src="structure.png" width = "600" height = "300" alt="structure" align=center />  
 
+## 模块简介
 ### 模块一、PaddleDetection
 PaddleDetection是由PaddlePaddle模型团队开发的检测库框架，包含Faster R-CNN、Mask R-CNN、YOLO-V3等主流和前沿检测模型。在本方案中，我们通过使用PaddleDetection解决视觉任务中的目标检测和实例分割两大问题。  
 
