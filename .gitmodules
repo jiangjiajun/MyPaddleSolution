@@ -1,3 +1,6 @@
 [submodule "DataAnnotation/labelme"]
 	path = DataAnnotation/labelme
 	url = https://github.com/wkentaro/labelme.git
+[submodule "models/PaddleCV/PaddleDetection"]
+	path = models/PaddleCV/PaddleDetection
+	url = https://github.com/PaddlePaddle/models.git
